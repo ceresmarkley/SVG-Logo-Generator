@@ -23,24 +23,39 @@ const questions = [
     },
     {
         type: 'input',
-        name: 'shapecolor',
+        name: 'shapeColor',
         message: 'Please Enter the color of your background shape: ',
     },
     
 ];
 
-function writeToFile(fileName, data) {
-fs.writeFile(fileName, data, (err) =>
-    err ? console.log(err) : console.log('Readme.md file created! Check UTILS folder!')
-);
+
+function generateLogo(name, nameColor, shape, shapeColor) {
+    let logoShape;
+
+    if (shape === 'Circle') {
+        logoShape = new Circle(name, nameColor, shapeColor);
+    } else if (shape === 'Triangle') {
+        logoShape = new Triangle(name, nameColor, shapeColor);
+    } else if (shape === 'Square') {
+        logoShape = new Square(name, nameColor, shapeColor);
+    }
+
+    const svgCode = logoShape.render();
+    fs.writeFileSync('logo.svg', svgCode);
+    console.log('Nice Logo dude!');
 }
 
-const init = () => {
-inquirer.prompt(questions)
-    .then((answers) => writeToFile('./examples/logo.svg', generateMarkdown(answers)))
-    .catch((err) => console.log(err));
-};
+async function generate() {
+    try {
+        const { name, nameColor, shape, shapeColor } = await inquirer.prompt(questions);
 
-init();
+        generateLogo(name, nameColor, shape, shapeColor);
+    } catch (error) {
+        console.error('An error occurred:', error);
+    }
+}
+
+generate(); 
 
  
