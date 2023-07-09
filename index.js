@@ -14,12 +14,12 @@ const questions = [
         type: 'input',
         name: 'nameColor',
         message: `Please Enter the color for your Logo's text:`,
-        choices: ['Circle', 'Triangle', 'Square']
     },
     {
         type: 'list',
         name: 'shape',
         message: 'Please Select the background shape of your logo:',
+        choices: ['Circle', 'Triangle', 'Square']
     },
     {
         type: 'input',
@@ -37,7 +37,7 @@ fs.writeFile(fileName, data, (err) =>
 
 const init = () => {
 inquirer.prompt(questions)
-    .then((answers) => writeToFile('./utils/README.md', generateMarkdown(answers)))
+    .then((answers) => writeToFile('./examples/logo.svg', generateMarkdown(answers)))
     .catch((err) => console.log(err));
 };
 
