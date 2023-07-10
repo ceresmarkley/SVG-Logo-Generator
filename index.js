@@ -11,7 +11,7 @@ const questions = [
             if (input.length <= 3) {
                 return true;
             }
-            return 'You can only enter 3 or less characters';
+            return 'Too many characters! (Max 3) Try Again!';
         },
     },
     {
