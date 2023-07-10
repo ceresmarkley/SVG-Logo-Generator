@@ -9,6 +9,12 @@ const questions = [
         type: 'input',
         name: 'name',
         message: 'Please Enter your Logo Symbols here (3 or less characters):',
+        validate: function (input) {
+            if (input.length <= 3) {
+                return true;
+            }
+            return 'You can only enter 3 or less characters';
+        },
     },
     {
         type: 'input',
@@ -42,8 +48,16 @@ function generateLogo(name, nameColor, shape, shapeColor) {
     }
 
     const svgCode = logoShape.render();
-    fs.writeFileSync('logo.svg', svgCode);
-    console.log('Nice Logo dude!');
+    const exists = fs.existsSync('./examples/logo.svg');
+
+    if (exists) {
+        const newFileName = `./examples/logo-${name}.svg`;
+        fs.writeFileSync(newFileName, svgCode);
+        console.log(`Logo saved to ${newFileName}`);
+    } else {
+        fs.writeFileSync(`./examples/logo-${name}.svg`, svgCode);
+        console.log('Nice Logo dude!');
+}
 }
 
 async function generate() {
