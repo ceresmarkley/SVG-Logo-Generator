@@ -40,7 +40,7 @@ THEN I am shown a 300x200 pixel image that matches the criteria I entered
 Inquirer packages are already installed. Version 8.2.4
 
 ## Usage 
-(https://github.com/ceresmarkley/SVG-Logo-Generator/assets/129554518/8f119a0d-9eef-479d-9de2-c7184abbf26e)
+https://github.com/ceresmarkley/SVG-Logo-Generator/assets/129554518/8f119a0d-9eef-479d-9de2-c7184abbf26e
 
 
 ## Sources 
