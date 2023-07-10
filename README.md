@@ -1,7 +1,8 @@
 # SVG-Logo-Generator
 ## Description 
 
-An application that will allow user to generate an SVG Logo using their inputs.
+An application that will allow user to generate an SVG Logo using their inputs. Files will be created with their logo characters included in the file name.   
+Files will be created in examples folder.
 
 ## Table of Contents 
 
