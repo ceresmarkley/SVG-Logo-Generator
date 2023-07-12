@@ -47,7 +47,7 @@ https://github.com/ceresmarkley/SVG-Logo-Generator/assets/129554518/e8fa0c72-514
 
 
 ## Sources 
-Daniel Chen (Peer Support) - https://github.com/CQlove/SVG-Logo-Maker/tree/main 
+Daniel Chen (Peer Support - Generate Logo function) - https://github.com/CQlove/SVG-Logo-Maker/tree/main 
 
 ---
 
