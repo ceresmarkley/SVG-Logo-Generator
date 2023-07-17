@@ -48,16 +48,23 @@ function generateLogo(name, nameColor, shape, shapeColor) {
     // create a const svgCode that will render logoShape from user's selected 'shape'. 
     const svgCode = logoShape.render();
     // checks to see if filename already exits in examples folder and make a new file if it does, else make file
-    const exists = fs.existsSync('./examples/logo.svg');
+    let exists = fs.existsSync(`./examples/logo-${name}.svg`);
 
     if (exists) {
-        const newFileName = `./examples/logo-${name}.svg`;
+        let counter = 1;
+        let newFileName = `./examples/logo-${name}-${counter}.svg`;
+        while (exists) {
+          counter++;
+          newFileName = `./examples/logo-${name}-${counter}.svg`;
+          exists = fs.existsSync(newFileName);
+        }
+    
         fs.writeFileSync(newFileName, svgCode);
         console.log(`Logo saved to ${newFileName}`);
-    } else {
+      } else {
         fs.writeFileSync(`./examples/logo-${name}.svg`, svgCode);
         console.log('Nice Logo dude!');
-}
+      }
 }
 
 // creating async function that will await the return of prompt questions' input before calling generate logo function.
