@@ -8,10 +8,10 @@ const questions = [
         name: 'name',
         message: 'Please Enter your Logo Symbols here (3 or less characters):',
         validate: function (input) {
-            if (input.length <= 3) {
-                return true;
-            }
-            return 'Too many characters! (Max 3) Try Again!';
+            if (input.trim() !== "" && input.length >= 1 && input.length <= 3) {
+                return true
+              }
+            return "Must enter a valid response that is 1-3 characters!";
         },
     },
     {
@@ -33,7 +33,7 @@ const questions = [
     
 ];
 
-
+// function to generate the shape matching the class selected by user in prompt questions.
 function generateLogo(name, nameColor, shape, shapeColor) {
     let logoShape;
 
@@ -58,6 +58,7 @@ function generateLogo(name, nameColor, shape, shapeColor) {
 }
 }
 
+// 
 async function generate() {
     try {
         const { name, nameColor, shape, shapeColor } = await inquirer.prompt(questions);
