@@ -45,7 +45,9 @@ function generateLogo(name, nameColor, shape, shapeColor) {
         logoShape = new Square(name, nameColor, shapeColor);
     }
 
+    // create a const svgCode that will render logoShape from user's selected 'shape'. 
     const svgCode = logoShape.render();
+    // checks to see if filename already exits in examples folder and make a new file if it does, else make file
     const exists = fs.existsSync('./examples/logo.svg');
 
     if (exists) {
@@ -58,7 +60,7 @@ function generateLogo(name, nameColor, shape, shapeColor) {
 }
 }
 
-// 
+// creating async function that will await the return of prompt questions' input before calling generate logo function.
 async function generate() {
     try {
         const { name, nameColor, shape, shapeColor } = await inquirer.prompt(questions);
